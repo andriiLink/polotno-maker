@@ -1,0 +1,46 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.greetings,
+.goal-text,
+.help-suggestion-text,
+.start-button {
+  opacity: 0;
+  animation-name: fadeInUp;
+  animation-duration: 7s;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  animation-fill-mode: forwards;
+}
+
+.welcome-view-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  padding-inline: 50px;
+  padding-block: 20px;
+}
+
+.greetings {
+  animation-delay: 0.5s;
+}
+
+.goal-text {
+  animation-delay: 1s;
+}
+
+.help-suggestion-text {
+  animation-delay: 4s;
+}
+
+.start-button {
+  animation-delay: 6s;
+}
