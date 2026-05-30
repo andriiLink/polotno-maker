@@ -1,0 +1,29 @@
+.first-step-wrapper {
+  
+}
+
+.first-step-text-wrapper {
+  padding-inline: 50px;
+  padding-block: 20px;
+}
+
+.options-wrapper {
+  display: flex;
+  justify-content: space-around;
+
+  margin-top: 50px;
+}
+
+.uppload-studenst-text {
+  margin-bottom: 50px;
+}
+
+.upload-students-modal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background-color: rgb(0 0 0 / 0.5);
+
+  z-index: 10;
+}
