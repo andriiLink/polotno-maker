@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import WelcomeView from "./views/WelcomeView";
 import Step1StudentsView from "./views/Step1StudentsView";
-import Step2SemestersView from "./views/Step3ResultsView";
+import Step2SemestersView from "./views/Step2SemestersView";
 import Step3ResultsView from "./views/Step3ResultsView";
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
   const prevStep = () => setViewNum(prev => prev - 1);
   const nextStep = () => setViewNum(prev => prev + 1);
 
+  console.log(viewNum)
   return (
     <div className="welcome-window-wrapper">
       <div className="bg-aurora">
