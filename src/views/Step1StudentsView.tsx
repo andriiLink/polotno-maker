@@ -1,9 +1,8 @@
 import { FC, useState } from "react";
-import "../App.css";
-import "../styles/Step1StudentsView.css";
 
 import { UploadStudentsFileModal } from "../components/UploadStudentsFileModal";
 import { UploadStudentsManuallyModal } from "../components/UploadStudentsManuallyModal";
+import { CustomButton } from "../components/CustomButton";
 
 interface Step1StudentsViewProps {
   onPrevStep: () => void;
@@ -14,9 +13,9 @@ const Step1StudentsView: FC<Step1StudentsViewProps> = ({
   onPrevStep,
   onNextStep,
 }) => {
-  const [ studentsUploadManuallyModal, setStudentsManuallyUploadModal ] =
+  const [studentsUploadManuallyModal, setStudentsManuallyUploadModal] =
     useState(false);
-  const [ studentsUploadFileModal, setStudentsFileUploadModal ] = useState(false);
+  const [studentsUploadFileModal, setStudentsFileUploadModal] = useState(false);
 
   const handleOpenManuallyModal = () => {
     setStudentsManuallyUploadModal(true);
@@ -42,9 +41,9 @@ const Step1StudentsView: FC<Step1StudentsViewProps> = ({
   };
 
   return (
-    <div className="first-step-wrapper">
+    <div className="flex flex-col gap-25 p-20">
       {studentsUploadFileModal && (
-        <div className="upload-students-modal">
+        <div>
           <UploadStudentsFileModal
             onConfirm={handleConfirmFileModal}
             onClose={handleCloseFileModal}
@@ -52,7 +51,7 @@ const Step1StudentsView: FC<Step1StudentsViewProps> = ({
         </div>
       )}
       {studentsUploadManuallyModal && (
-        <div className="upload-students-modal">
+        <div>
           <UploadStudentsManuallyModal
             onConfirmModal={handleConfirmManuallyModal}
             onClose={handleCloseManuallModal}
@@ -60,22 +59,39 @@ const Step1StudentsView: FC<Step1StudentsViewProps> = ({
         </div>
       )}
 
-      <div className="first-step-text-wrapper">
-        <h1 className="uppload-studenst-text">Завантаження студентів</h1>
+      <section className="flex flex-col gap-5">
+        <h1 className="text-4xl text-center">Завантаження студентів</h1>
         <p>
           На цьому етапі нам потрібно зрозуміти для яких студентів ми будемо
           створювати відомість
         </p>
         <p>Ти можеш обрати два способи як ти хочеш вказати студентів групи</p>
-      </div>
+      </section>
 
-      <div className="options-wrapper">
-        <button onClick={handleOpenFileyModal}>Завантажити як файл</button>
-        <button onClick={handleOpenManuallyModal}>Ввести вручну</button>
-      </div>
+      <section className="flex justify-around">
+        <CustomButton className="w-1/3" onClick={handleOpenFileyModal}>
+          Завантажити як файл
+        </CustomButton>
+        <CustomButton className="w-1/3" onClick={handleOpenManuallyModal}>
+          Ввести вручну
+        </CustomButton>
+      </section>
 
-      <button onClick={onPrevStep}>Prev setp</button>
-      {/* <button onClick={onNextStep}>Next setp</button> */}
+      <button
+        onClick={onPrevStep}
+        className="
+          px-4 py-2.5 w-1/4 
+          rounded-lg border border-[#30363d] 
+          text-slate-300 
+          hover:text-white 
+          hover:bg-[#21262d] 
+          active:scale-95 transition-all 
+          text-sm font-medium 
+          ursor-pointer
+        "
+      >
+        Назад
+      </button>
     </div>
   );
 };
